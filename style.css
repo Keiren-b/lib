@@ -1,3 +1,22 @@
+* {
+  font-family: helvetica, arial, sans-serif;
+  background-color: #83cce4;
+  
+}
+body {
+  max-width: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 14px;
+  padding-bottom: 20px;
+  background: none
+}
+
 /* .form-popup {
     display: none;
 } */
@@ -12,15 +31,6 @@ form {
     border-radius: 1em;
   }
   
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  form li + li {
-    margin-top: 1em;
-  }
   
   label {
     /* Uniform size & alignment */
@@ -33,7 +43,7 @@ form {
   textarea {
     /* To make sure that all text fields have the same font settings
        By default, textareas have a monospace font */
-    font: 1em sans-serif;
+  
   
     /* Uniform text field size */
     width: 300px;
@@ -66,4 +76,36 @@ form {
     /* This extra margin represent roughly the same space as the space
        between the labels and their text fields */
     margin-left: .5em;
+  }
+
+  .info {
+    border: 1px solid rgb(150, 150, 150);
+    width: 200px;
+    height: 250px;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+     background-color: #83cce44d;
+
+  }
+
+  #cardContainer {
+    display: grid;
+    min-width: 764px;
+    min-height: auto;
+    grid-template-columns: 20% 20% 20%;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url('background2.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #83cce4;
+  }
+
+  #shark{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
