@@ -36,32 +36,36 @@ const addBook = (ev) => {
     let book = new Book(title, author, pages, read)
     myLibrary.push(book);
 
-   myLibrary.forEach(element => {
+
+    for (let i=0; i<myLibrary.length; i++){
+
+    
     const info = document.createElement('div')
     info.classList.add('info')
 
        const title = document.createElement('h2')
-       title.textContent=element.title;
+       title.textContent=myLibrary[i].title;
        title.style.fontStyle = 'italic'
        const author = document.createElement('h2')
-       author.textContent = element.author;
+       author.textContent = myLibrary[i].author;
        let pages = document.createElement('h2')
-       pages.textContent='Number of Pages: ' + element.pages
+       pages.textContent='Number of Pages: ' + myLibrary[i].pages
        let read = document.createElement('h2')
-       read.textContent = element.read
+       read.textContent = myLibrary[i].read
        container.appendChild(info)
        info.appendChildren = function (){
-            for (let i=0; i< arguments.length; i++){
-                this.appendChild(arguments[i]);
+            for (let j=0; j< arguments.length; j++){
+                this.appendChild(arguments[j]);
             }
        }
 
        info.appendChildren(title, author, pages, read)
     //    info.appendChild(title, author, pages, read)
-   })
+   }}
+
     document.querySelector('form').reset()
     
-}
+
 
 
 document.addEventListener('DOMContentLoaded', ()=> {
