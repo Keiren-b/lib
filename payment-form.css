@@ -1,4 +1,4 @@
-h1 {
+/* h1 {
     margin-top: 0;
 }
 
@@ -62,3 +62,11 @@ button {
 label {
   position: relative;
 }
+
+#title:invalid:required {
+    border: solid red
+}
+
+#title:valid {
+    border:solid purple
+} */

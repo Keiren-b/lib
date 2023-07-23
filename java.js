@@ -28,6 +28,11 @@ const container = document.getElementById('cardContainer')
 
 const addBook = (ev) => {
     ev.preventDefault()
+    let f = document.getElementById('form')
+    if (f.checkValidity() == false){
+        showError()
+    }
+    else {
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value
     let pages = document.getElementById('pages').value
@@ -60,10 +65,13 @@ const addBook = (ev) => {
        }
 
        info.appendChildren(title, author, pages, read)
+       document.querySelector('form').reset()
     //    info.appendChild(title, author, pages, read)
    }}
+}
 
-    document.querySelector('form').reset()
+
+    
     
 
 
@@ -92,3 +100,78 @@ function Book(title, author, pages, read){
 //   document.getElementById('btn').addEventListener('click', closeForm)
 
 //
+
+const form = document.querySelector('form')
+const title = document.getElementById('title')
+const titleError = document.getElementById('titleError')
+const author = document.getElementById('author')
+const pages = document.getElementById('pages')
+const read = document.getElementById('read')
+
+title.addEventListener('input', (event)=> {
+    if (title.validity.valid) {
+        // title.setCustomValidity("A Title is required")
+        // titleError.textContent = "A title is Requiredz" 
+        titleError.textContent = ""
+        titleError.className = 'error'   
+    }
+
+    else {
+        // title.setCustomValidity("")
+        showError();
+    }
+})
+
+form.addEventListener('submit', (event)=> {
+    if (!title.validity.valid) {
+        showError();
+        event.preventDefault();
+    }
+    else if (!author.validity.valid) {
+        showError();
+        event.preventDefault();
+    }
+})
+
+function showError() {
+    if (title.validity.valueMissing) {
+        titleError.textContent = "You Need to Enter a Title"
+        titleError.className = 'error active'
+    }
+
+    if (author.validity.valueMissing) {
+        authorError.textContent = 'You Need to Enter an Author'
+        authorError.className = 'error active'
+    }
+    if (pages.validity.valueMissing) {
+        pagesError.textContent = 'You Need to Enter a Number Greater than 0'
+        pagesError.className = 'error active'
+    }
+
+
+}
+
+
+author.addEventListener('input', (event)=> {
+
+    if (author.validity.valid) {
+        authorError.textContent = ""
+        authorError.className = 'error'
+    }
+    else {
+        // title.setCustomValidity("")
+        showError();
+    }
+})
+
+pages.addEventListener('input', (event)=> {
+    if (pages.validity.valid) {
+        pagesError.textContent = ""
+        pagesError.className = 'error'
+        
+    }
+    else {
+        showError();
+    }
+}
+)
